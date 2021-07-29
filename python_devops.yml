@@ -1,0 +1,4 @@
+call setup_env.bat
+conda activate hellodac
+# ... some python build/test stuff goes here
+call teardown_env.bat
