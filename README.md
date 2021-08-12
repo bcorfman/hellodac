@@ -1,3 +1,3 @@
 # HelloDAC
 
-This is HelloDAC.
+This is the HelloDAC project.
