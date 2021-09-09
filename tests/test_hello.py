@@ -1,4 +1,4 @@
-from hello import hello_dac
+from app.hello import hello_dac
 
 
 def test_hello_dac():
