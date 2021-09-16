@@ -39,5 +39,4 @@ jobs:
       uses: AndreMiras/coveralls-python-action@develop
       with:
         parallel: true
-        debug:
-          true- name: Install dependencies
+        debug: true
