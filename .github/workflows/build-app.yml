@@ -71,5 +71,5 @@ jobs:
       with:
         upload_url: ${{ needs.create_release.outputs.upload_url }}
         asset_path: ${{ matrix.x86_64 }}
-        asset_name: grader.x86_64.${{ matrix.name }}
+        asset_name: hellodac.x86_64.${{ matrix.name }}
         asset_content_type: application/octet-stream
