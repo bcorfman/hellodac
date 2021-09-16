@@ -21,11 +21,13 @@ jobs:
       shell: bash -l {0}
       run: |
         pip install -r requirements.txt
+        pip install -r tests/requirements.txt
     - name: Set up Windows dependencies
       if: matrix.os == 'windows-latest'
       shell: cmd /C CALL {0}
       run: |
         pip install -r requirements.txt
+        pip install -r tests\requirements.txt
     - name: Run tests on Windows
       if: matrix.os == 'windows-latest'
       shell: cmd /C CALL {0}
@@ -33,7 +35,9 @@ jobs:
     - name: Run tests on non-Windows
       if: matrix.os != 'windows-latest'
       shell: bash -l {0}
-      run: ./cicd/run_tests.sh
+      run: |
+        chmod 775 cicd/run_tests.sh
+        ./cicd/run_tests.sh
     - name: Coveralls
       if: matrix.os == 'ubuntu-latest'
       uses: AndreMiras/coveralls-python-action@develop
