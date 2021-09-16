@@ -39,10 +39,10 @@ jobs:
         python-version: [3.9]
         include:
           - os: ubuntu-latest
-            x86_64: ./dist/grader
+            x86_64: ./dist/hellodac
             name: bin
           - os: windows-latest
-            x86_64: ./dist/grader.exe
+            x86_64: ./dist/hellodac.exe
             name: exe
     steps:
     - uses: actions/checkout@v2
