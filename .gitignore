@@ -1,5 +1,7 @@
 .idea/
+hello.build/
 build/
 dist/
 __pycache__/
 .coverage
+hello.bin
