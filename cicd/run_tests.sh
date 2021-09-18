@@ -6,4 +6,4 @@ flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statist
 
 coverage run --branch --omit=tests/* -m pytest
 coverage report
-COVERALLS_REPO_TOKEN=1PDFYWyz8EtFscaGPZxfxZMUPyasLNCTz coveralls
+#COVERALLS_REPO_TOKEN=1PDFYWyz8EtFscaGPZxfxZMUPyasLNCTz coveralls
