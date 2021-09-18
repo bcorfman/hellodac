@@ -1,1 +1,1 @@
-python3 -m nuitka ../app/hello.py
+python3 -m nuitka app/hello.py
