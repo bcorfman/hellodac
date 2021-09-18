@@ -63,13 +63,29 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
       run: pytest
-    - name: Deploy with pyinstaller and give a quick test
+    - name: Deploy on Windows
+      if: matrix.os == 'windows-latest'
+      shell: cmd /C CALL {0}
+      run: |
+        ./cicd/nuitka_build.bat
+        pyinstaller --onefile hellodac.spec
+    - name: Deploy on non-Windows
+      if: matrix.os != 'windows-latest'
+      shell: bash -l {0}
       run: |
         pyinstaller --onefile hellodac.spec
-    - name: Upload x86_64 Binary
+        ./cicd/nuitka_build.sh
+    - name: Upload x86_64 PyInstaller build
       uses: actions/upload-release-asset@v1.0.1
       with:
         upload_url: ${{ needs.create_release.outputs.upload_url }}
         asset_path: ${{ matrix.x86_64 }}
         asset_name: hellodac.x86_64.${{ matrix.name }}
+        asset_content_type: application/octet-stream
+    - name: Upload x86_64 Nuitka build
+      uses: actions/upload-release-asset@v1.0.1
+      with:
+        upload_url: ${{ needs.create_release.outputs.upload_url }}
+        asset_path: ${{ matrix.x86_64 }}
+        asset_name: hellodac.bin
         asset_content_type: application/octet-stream
